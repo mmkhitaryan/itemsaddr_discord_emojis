@@ -25,6 +25,8 @@ print(len(table_of_clean_emojis))
 
 import shutil
 
+Path('72x72_to_srv').mkdir(parents=True, exist_ok=True)
+
 for entry in table_of_clean_emojis:
     (pic_location, emoji_code) = entry
     pic_full_location = (Path('72x72') / pic_location)
