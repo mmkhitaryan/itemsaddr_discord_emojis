@@ -10,14 +10,12 @@ table_of_clean_emojis = [
 with open('emoji_top.json', 'r') as file:
     data_top = json.loads(file.read())
 
-# filter TOP 100
-data = [x for x in data.items() if x[1] in data_top['emojis']]
+data_items = data.items()
 
-for key, value in data:
+for key, value in data_items:
     hex_unicode = hex(ord(value[:1]))[2:]
 
-
-    table_of_clean_emojis.append((f'{hex_unicode}.png', key[1:-1] ))
+    table_of_clean_emojis.append((f'{hex_unicode}.png', key ))
 
 from pathlib import Path
 
@@ -32,12 +30,12 @@ for entry in table_of_clean_emojis:
     pic_full_location = (Path('72x72') / pic_location)
     pic_srv_full_path = Path('72x72_to_srv') / pic_location
     
-    if not pic_full_location.exists():
+    if pic_full_location.exists():
+        shutil.copy(pic_full_location, pic_srv_full_path)
+    else:
         print(f"cant find image for {entry}")
 
-    table_of_clean_emojis.remove(entry)
-    shutil.copy(pic_full_location, pic_srv_full_path)
-
+        table_of_clean_emojis.remove(entry)
 
 print(len(table_of_clean_emojis))
 
@@ -58,4 +56,5 @@ for (pic_location, emoji_code) in table_of_clean_emojis:
 
 full_yaml = header+body
 
-print(full_yaml)
+with open('output.yaml', 'w') as file:
+    file.write(full_yaml)
