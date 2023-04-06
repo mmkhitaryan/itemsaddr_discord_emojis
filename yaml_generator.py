@@ -58,4 +58,4 @@ for (pic_location, emoji_code) in table_of_clean_emojis:
 
 full_yaml = header+body
 
-print(len(full_yaml))
+print(full_yaml)
