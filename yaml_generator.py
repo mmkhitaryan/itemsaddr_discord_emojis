@@ -4,6 +4,7 @@ from pathlib import Path
 
 # I am not sure how many emojis ItemsAdder can handle
 # but when I uploaded all 5000+ emojis, it crashes the server
+# TODO: find max emojies balue by binary searching
 HOW_MANY_TO_LEFT = 500
 TONE_REMOVER = True # removes skin tones variations emojis
 
