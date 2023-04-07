@@ -51,6 +51,9 @@ for x in range(how_many_to_remove):
 print(len(table_of_clean_emojis))
 
 header = """
+info:
+  namespace: "emojis"
+font_images:
 """
 
 body = ""
