@@ -15,9 +15,6 @@ table_of_clean_emojis = [
     # ('0x1f36c', ':code:')
 ]
 
-with open('emoji_top.json', 'r') as file:
-    data_top = json.loads(file.read())
-
 data_items = data.items()
 
 for key, value in data_items:
